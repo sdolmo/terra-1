@@ -40,7 +40,7 @@
     <%= listings_form.text_area :description %>
   </p>
 
-  	<%= listings_form.fields_for :locations do |location_form|%>
+  	<%= listings_form.fields_for :location do |location_form|%>
   		<%= location_form.label :latitude %></br>
   		<%= location_form.text_field :latitude%></br>
   		<%= location_form.label :longitude %></br>
