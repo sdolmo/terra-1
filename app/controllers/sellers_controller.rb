@@ -4,26 +4,14 @@ class SellersController < ApplicationController
 	def new #preparing to build
 		@seller = Seller.new
 		@listing = @seller.listings.build
-		@location = @listing.build_location
-		# @location = @listing.locations.build
 	end
 
 	def create
 		@seller = Seller.find_or_create_by(name: seller_params[:name], email: seller_params[:email])
-		byebug
 		@listing = @seller.listings.create(seller_params[:listings_attributes]["0"])
-		@location = @listing.create_location(seller_params[:listings_attributes]["1"])
-		# @location = @listing.locations.create(seller_params[:location]["0"])
 		redirect_to @seller
 	end
-		# redirect_to @seller
-		# render "seller/show"
-
-
-
-		#next step is to redirect seller to all their listings, 
-		#redirect_to @seller seller/1 ..etc, for that particular seller. Route =>show def show
-	
+		# redirect_to @seller	
    
 	def show
 		@seller = Seller.find(params[:id])
@@ -37,7 +25,7 @@ class SellersController < ApplicationController
 	private
 
     def seller_params
-    	params.require(:seller).permit(:name, :email, :listings_attributes => [:title, :acres, :price, :description], :locations =>[:latitude, :longitude])
+    	params.require(:seller).permit(:name, :email, :listings_attributes => [:title, :acres, :price, :description, :latitude, :longitude])
     end
 end
 

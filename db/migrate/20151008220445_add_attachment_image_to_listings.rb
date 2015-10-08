@@ -1,8 +1,9 @@
 class AddAttachmentImageToListings < ActiveRecord::Migration
   def self.up
-    add_attachment :listings, :image
+    change_table :listings do |t|
+      t.attachment :image
+    end
   end
-
 
   def self.down
     remove_attachment :listings, :image
