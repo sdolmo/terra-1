@@ -1,0 +1,8 @@
+<h2>These are all your listings</h2>
+<%= @seller.name %>
+<% @seller_listings.each do |listing|%>
+	<p> Title: <%= listing.title %></br></p>
+	<%= listing.description %></br>
+	<%= listing.acres %></br>
+	<%= listing.price %></br>
+<% end %>

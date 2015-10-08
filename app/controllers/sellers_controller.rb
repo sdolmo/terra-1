@@ -1,54 +1,43 @@
 class SellersController < ApplicationController
-	
-	def new
 
+	
+	def new #preparing to build
 		@seller = Seller.new
 		@listing = @seller.listings.build
+		# @location = @listing.build_location
+		@location = @listing.locations.build
 	end
 
 	def create
-		
-		@seller = Seller.find_or_create_by(email: seller_params[:email])
-		byebug
-		
-		#@listing = @seller.listings.create
-		#Checks to see if the person already exists
-		
-		# if @seller = Seller.find_by_email(seller_params)
-		# 	#redirect to the make a new listing view
-
-  #   	else #they aren't in the database, create them, then link to the make a new listing
-  #   		@seller = Seller.create(seller_params)
-  #   		#redirect them to seller/listings/new
-    	end
-    
+		# byebug
+		@seller = Seller.find_or_create_by(name: seller_params[:name], email: seller_params[:email])
+		@listing = @seller.listings.create(seller_params[:listings_attributes]["0"])
+		# @location = @listing.create_location(seller_params[:listings_attributes]["1"])
+		@location = @listing.locations.create(seller_params[:listings_attributes["1"]])
+		redirect_to @seller
+	end
+		# redirect_to @seller
+		# render "seller/show"
 
 
 
+		#next step is to redirect seller to all their listings, 
+		#redirect_to @seller seller/1 ..etc, for that particular seller. Route =>show def show
+	
+   
+	def show
+		@seller = Seller.find(params[:id])
+		#how to match seller with all their listings
+		@seller_listings = @seller.listings.all
+	end
 
 
 
 
-
-
-    	# Redirect the person to make a new listing
-    	# After you redirect them, show them all of their listings @seller.listings.all << Listing.create
-
-    	#What do you want to happen after the user is either made or found in the database
-    	#This 
-
-    	# if @seller.save <we would only need this if once the person is done entering in their name and email they have 2 options, THEY DONT HERE>
-    	# 	#redirect make a new listing
-    	# else
-    	# 	#redirect you to make a new listing
-    	# end
-
-    	
-
-    private
+	private
 
     def seller_params
-    	params.require(:seller).permit(:name, :email, :listings_attributes => [:title, :acres, :price, :description]) #makes users fill out their name or email, or it will not allow them to go on
+    	params.require(:seller).permit(:name, :email, :listings_attributes => [:title, :acres, :price, :description, :locations_attribute =>[:latitude, :longitude]]) #makes users fill out their name or email, or it will not allow them to go on
     end
 end
 
