@@ -2,7 +2,9 @@
 <% @listings.each do |listing|%>
 	<ul>
 		<li><%= link_to listing.title,listing_path(listing) %> </li>
-		
 	</ul>
 <% end %>
+
 <p> <%= link_to "Back to Homepage",root_path%> </p>
+<p> <%= link_to "Create New Listing",new_seller_path%> </p>
+
