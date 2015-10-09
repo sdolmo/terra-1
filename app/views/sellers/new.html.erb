@@ -51,12 +51,13 @@
   </p>
   <% end %> 
   <p>
-    <%= f.submit %>
+    <%= f.submit "Submit Listing" %>
   </p>
 <% end %>
 
 <p><%= link_to "Homepage", root_path%></br><p/>
-<!--  link_to "Click Here to See All Land Listings for Sale", all_listing_path(@listing) #LINK FOR 59 NOT WORKING -->
+<p><%= link_to "View Listings on Terra", listings_path, class: "show_listings" %></br><p/>
+
 
 
 
