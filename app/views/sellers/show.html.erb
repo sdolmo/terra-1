@@ -6,5 +6,8 @@
 	<%= listing.acres %></br>
 	<%= listing.price %></br>
   <!-- add a link to be able to edit each listing -->
-  <%= link_to "Edit this listing", edit_listing_path(listing, :seller_id => @seller.id) %>
+<p><%= link_to "Edit This Listing", edit_listing_path(listing, :seller_id => @seller.id)%></br></p>
 <% end %>
+
+<p><%= link_to "Create Another Listing", new_seller_path, class: "new_seller"%></br></p>
+<p><%= link_to "Homepage", root_path%></br><p/>
