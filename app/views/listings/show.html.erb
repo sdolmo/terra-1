@@ -3,5 +3,6 @@
 <p><%= @listing.acres %></p>
 
 <%= image_tag @listing.image.url(:medium) %>
-</br>
-<%= link_to "Back to all Listings", listings_path(@listing) %>
+
+<%= link_to "Back To All Listings", listing_path(@listing) %>
+
