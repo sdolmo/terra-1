@@ -1,43 +1,32 @@
+#this is where we'll show a specific listing to the buyer, and to the seller
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show]
+  before_action only: [:show]
 
   def index
     @listings = Listing.all
   end
 
-  def show
+  def show 
+    @listing = Listing.find(params[:id])
+    @seller = Seller.find_by(:id => @listing.seller_id)
   end
 
-  def new
-    @listings = Listing.new
-  end
-
-  def create
-    @listing = Listing.new(post_params)
-
-    respond_to do |format|
-      if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.json { render :show, status: :created, location: @listing}
-      else
-        format.html { render :new }
-        format.json {render json: @listing.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-
-
-private
-# Use callbacks to share common setup or constraints between actions.
-  def set_post
+  def edit
+    # binding.pry
     @listing = Listing.find(params[:id])
   end
-# Never trust parameters from the scary internet, only allow the white list through.
-  def post_params
-    params.require(:post).permit(:title, :acres, :price, :description, :image)
+
+  def update
+    @listing = Listing.find(params[:id])
+    @seller = Seller.find_by(:id => @listing.seller_id)
+    @listing.update(listing_params)
+    redirect_to @seller 
   end
 
+  private
 
-
+  def listing_params
+    params.require(:listing).permit(:title, :acres, :price, :description, :latitude, :longitude)
+  end
 end
+

@@ -1,0 +1,68 @@
+<!-- Everything that we had in sellers erb, goes here and this is where our nested listings_formorm goes:
+
+ -->
+<h1>Create New Land Listing</h1>
+<%= form_for @seller do |f| %>
+	<% if @seller.errors.any? %>
+  	<div id="error_explanation">
+    	<h2><%= pluralize(@seller.errors.count,"error") %> prohibited this seller from being saved:</h2>
+   </div>
+	<% end %>
+  <ul>
+    <% @seller.errors.full_messages.each do |error| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+	
+	<%= f.fields_for :listings do |listings_form| %>     <!-- nested form starts here, fields_for, instead of form_for -->		
+	<p>
+    <%= listings_form.label :title %><br />
+    <%= listings_form.text_field :title %>
+  </p>
+  <p>
+    <%= listings_form.label :acres %><br />
+    <%= listings_form.text_field :acres %>
+  </p>
+  <p>
+    <%= listings_form.label :price %><br />
+    <%= listings_form.text_field :price %>
+  </p>
+  <p>
+    <%= listings_form.label :description %><br />
+    <%= listings_form.text_area :description %>
+  </p>
+
+  <p>
+    <%= listings_form.label :latitude %></br>
+    <%= listings_form.text_field :latitude %></br>
+  </p>
+
+  <p>
+    <%= listings_form.label :longitude %></br>
+    <%= listings_form.text_field :longitude %></br>
+  </p>
+  <% end %> 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,6 @@
-<h1><%= @listing.title %></h1>
-<p><%= @listing.acre %></p>
+<h1>This listing by <%=@seller.name%></h1>
+<h3><%= @listing.title %></h3>
+<p><%= @listing.acres %></p>
 
 <%= image_tag @listing.image.url(:medium) %>
+<%= link_to "Back to your Listings", listing_path(@listing) %>
