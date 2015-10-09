@@ -9,5 +9,24 @@ class ListingsController < ApplicationController
   def show 
 
   end
+
+  def edit
+    binding.pry
+    @listing = Listing.find(params[:id])
+  end
+
+  def update
+    binding.pry
+    @listing = Listing.find(params[:id])
+    @seller = Seller.find(params[:seller][:id])
+    @listing.update(listing_params)
+    render :show
+  end
+
+  private
+
+  def listing_params
+    params.require(:listing).permit(:title, :acres, :price, :description, :latitude, :longitude)
+  end
 end
 

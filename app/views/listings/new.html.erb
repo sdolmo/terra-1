@@ -1,37 +1,4 @@
 <h1>Create New Listing</h1>
-<%= form_for @listing, html: { multipart: true } do |f| %>
-<% if @listing.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@listing.errors.count,"error") %> prohibited this listing from being saved:</h2>
-  </div>
 
-  <ul>
-    <% @listing.errors.full_messages.each do |error| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+<%= render "form" %>
 
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :acres %><br />
-    <%= f.text_field :acres %>
-  </p>
-  <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>

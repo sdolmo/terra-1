@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :locations
   resources :listings
   resources :sellers
   # The priority is based upon order of creation: first created -> highest priority.

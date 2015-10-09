@@ -8,7 +8,7 @@ class SellersController < ApplicationController
 
 	def create
 		@seller = Seller.find_or_create_by(name: seller_params[:name], email: seller_params[:email])
-		@listing = @seller.listings.create(seller_params[:listings_attributes]["0"])
+		@seller.listings.create(seller_params[:listings_attributes]["0"])
 		redirect_to @seller
 	end
 		# redirect_to @seller	
