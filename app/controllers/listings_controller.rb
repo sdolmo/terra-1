@@ -1,26 +1,26 @@
 #this is where we'll show a specific listing to the buyer, and to the seller
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show]
+  before_action only: [:show]
 
   def index
     @listings = Listing.all
   end
 
   def show 
-
+    @listing = Listing.find(params[:id])
+    @seller = Seller.find_by(:id => @listing.seller_id)
   end
 
   def edit
-    binding.pry
+    # binding.pry
     @listing = Listing.find(params[:id])
   end
 
   def update
-    binding.pry
     @listing = Listing.find(params[:id])
-    @seller = Seller.find(params[:seller][:id])
+    @seller = Seller.find_by(:id => @listing.seller_id)
     @listing.update(listing_params)
-    render :show
+    redirect_to @seller 
   end
 
   private
