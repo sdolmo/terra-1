@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
   before_action only: [:show]
 
   def index
+    # binding.pry
     @listings = Listing.all
   end
 
