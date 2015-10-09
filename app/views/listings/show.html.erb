@@ -1,11 +1,15 @@
-<h1>This listing by <%=@seller.name%></h1>
-<h3><%= @listing.title %></h3>
-<p><%= @listing.acres %></p>
-<h3> </h3>
-<p> </p>
-<p> </p>
-<p>Seller's Contact info:</p>
-<p><%=@seller.email%></p>
+<h1>Listing Details:</h1>
+<h4>Listing by <%=@seller.name%></h4>
+<h3>Title: <%= @listing.title %></h3>
+<p>Price: <%= @listing.price %></p>
+<p>Acres: <%= @listing.acres %></p>
+<p>Description: <%= @listing.description %></p>
+<h3>Land Coordinates:</h3>
+<p>Latitude: <%= @listing.latitude %></p>
+<p>Longitude: <%= @listing.longitude %></p>
+<h3>Seller's Contact info:</h3>
+<p>Name: <%=@seller.name%></p>
+<p>Seller: <%=@seller.email%></p>
 </br>
 
 <a href="mailto:<%=@seller.email%>?subject=Terra%3AListing <%= @listing.title %>&amp;body=I%20would%20like%20more%20information%20about%20this%20listing%0Ahttp://localhost:3000/listings/<%=@listing.id%>">Email this seller </a>
