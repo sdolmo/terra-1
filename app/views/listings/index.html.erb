@@ -1,11 +1,8 @@
 <h1>All Listings</h1>
-
-<% @listings.each do |listing| %>
-
-  <ul>
-      <%= link_to listing.title, listing_path(listing) %>
-  </ul>
-
+<% @listings.each do |listing|%>
+	<ul>
+		<li><%= link_to listing.title,listing_path(listing) %> </li>
+		
+	</ul>
 <% end %>
-
-<%= link_to "Back to Homepage", root_path %>
+<p> <%= link_to "Back to Homepage",root_path%> </p>
