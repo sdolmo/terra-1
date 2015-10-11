@@ -2,9 +2,10 @@
 <%= @seller.name %>
 <% @seller_listings.each do |listing|%>
 	<p> Title: <%= listing.title %></br></p>
-	<%= listing.description %></br>
-	<%= listing.acres %></br>
-	<%= listing.price %></br>
+	<p> Description: <%= listing.description %></br></p>
+	<p> Acres: <%= listing.acres %></br></p>
+	<p> Price: <%= listing.price %></br></p>
+  <%= image_tag listing.image.url(:thumb) %>
   <!-- add a link to be able to edit each listing -->
 <p><%= link_to "Edit This Listing", edit_listing_path(listing, :seller_id => @seller.id)%></br></p>
 <% end %>
