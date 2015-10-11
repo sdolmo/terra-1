@@ -25,7 +25,7 @@ class SellersController < ApplicationController
 	private
 
     def seller_params
-    	params.require(:seller).permit(:name, :email, :listings_attributes => [:title, :acres, :price, :description, :latitude, :longitude])
+    	params.require(:seller).permit(:name, :email, :listings_attributes => [:title, :acres, :price, :description, :latitude, :longitude, :image])
     end
 end
 

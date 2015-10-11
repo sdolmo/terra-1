@@ -1,6 +1,7 @@
 <h1>Listing Details:</h1>
-<h4>Listing by <%=@seller.name%></h4>
+<p>Listing by <%=@seller.name%></p>
 <h3>Title: <%= @listing.title %></h3>
+<%= image_tag @listing.image.url(:medium) %>
 <p>Price: <%= @listing.price %></p>
 <p>Acres: <%= @listing.acres %></p>
 <p>Description: <%= @listing.description %></p>
@@ -16,7 +17,6 @@
 </br>
 
 </br>
-<%= image_tag @listing.image.url(:medium) %>
 </br>
 
 <%= link_to "Back To All Listings", listings_path %>

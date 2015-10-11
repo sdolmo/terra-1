@@ -15,6 +15,7 @@ class ListingsController < ApplicationController
   def edit
     # binding.pry
     @listing = Listing.find(params[:id])
+    @seller_id = params[:seller_id]
   end
 
   def update
@@ -27,7 +28,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :acres, :price, :description, :latitude, :longitude)
+    params.require(:listing).permit(:title, :acres, :price, :description, :latitude, :longitude, :image)
   end
 end
 
