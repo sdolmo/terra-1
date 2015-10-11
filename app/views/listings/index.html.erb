@@ -1,7 +1,8 @@
 <h1>All Listings</h1>
 <% @listings.each do |listing|%>
 	<ul>
-		<li><%= link_to listing.title,listing_path(listing) %> </li>
+    <li><%= link_to listing.title,listing_path(listing) %> </li>
+    <%= image_tag listing.image.url(:thumb) %>
 	</ul>
 <% end %>
 

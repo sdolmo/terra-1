@@ -49,6 +49,10 @@
     <%= listings_form.label :longitude %></br>
     <%= listings_form.text_field :longitude %></br>
   </p>
+  <p>
+    <%= listings_form.label :image %><br />
+    <%= listings_form.file_field :image %>
+  </p>
   <% end %> 
   <p>
     <%= f.submit "Submit Listing" %>
