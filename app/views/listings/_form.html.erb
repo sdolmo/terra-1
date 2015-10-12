@@ -11,36 +11,39 @@
     </ul>
   <% end %>
 
-  <p>
+  <p class="col-lg-10">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
-  <p>
+  <p class="col-lg-10">
     <%= f.label :acres %><br />
     <%= f.text_field :acres %>
   </p>
-  <p>
+  <p class="col-lg-10">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </p>
-  <p>
+  <p class="col-lg-10">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </p>
-  <p>
+  <p class="col-lg-10">
     <%= f.label :latitude %></br>
     <%= f.text_field :latitude %></br>
   </p>
 
-  <p>
+  <p class="col-lg-10">
     <%= f.label :longitude %></br>
     <%= f.text_field :longitude %></br>
   </p>
-  <p>
+  <p class="col-lg-10">
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </p>
-  <p>
-    <%= f.submit %>
+
+  </br> 
+  
+  <p class="col-lg-10">
+    <%= f.submit "Update Listing", class: "btn btn-info"  %>
   </p>
 <% end %>
