@@ -8,61 +8,68 @@
     	<h2><%= pluralize(@seller.errors.count,"error") %> prohibited this seller from being saved:</h2>
    </div>
 	<% end %>
+<fieldset>
   <ul>
     <% @seller.errors.full_messages.each do |error| %>
       <li><%= message %></li>
     <% end %>
   </ul>
-  <p>
+  <div class="col-lg-10">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </p>
-  <p>
+  </div>
+
+   <div class="col-lg-10">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
+    <%= f.text_field :email%>
+  </div>
 	
 	<%= f.fields_for :listings do |listings_form| %>     <!-- nested form starts here, fields_for, instead of form_for -->		
-	<p>
+	<div class="col-lg-10">
     <%= listings_form.label :title %><br />
     <%= listings_form.text_field :title %>
-  </p>
-  <p>
+  </div>
+  <div class="col-lg-10">
     <%= listings_form.label :acres %><br />
     <%= listings_form.text_field :acres %>
-  </p>
-  <p>
+  </div>
+  <div class="col-lg-10">
     <%= listings_form.label :price %><br />
     <%= listings_form.text_field :price %>
-  </p>
-  <p>
+  </div>
+  <div class="col-lg-10">
     <%= listings_form.label :description %><br />
     <%= listings_form.text_area :description %>
-  </p>
+  </div>
 
-  <p>
+  <div class="col-lg-10">
     <%= listings_form.label :latitude %></br>
     <%= listings_form.text_field :latitude %></br>
-  </p>
+  </div>
 
-  <p>
+  <div class="col-lg-10">
     <%= listings_form.label :longitude %></br>
     <%= listings_form.text_field :longitude %></br>
-  </p>
-  <p>
+  </div>
+  
+  <div class="col-lg-10">
     <%= listings_form.label :image %><br />
     <%= listings_form.file_field :image %>
-  </p>
+  </div>
+
   <% end %> 
-  <p>
-    <%= f.submit "Submit Listing" %>
-  </p>
+  </br>
+  
+  <div class="col-lg-10">
+    <%= f.submit "Submit Listing", class: "btn btn-info" %>
+  </div>
 <% end %>
 
-<p><%= link_to "Homepage", root_path%></br><p/>
-<p><%= link_to "View Listings on Terra", listings_path, class: "show_listings" %></br><p/>
+</br>
+<p class="col-lg-10"> <%= link_to "Send me back to the home page", root_path%></br><p/>
+<p class="col-lg-10"> <%= link_to "View all land listings on Terra", listings_path, class: "show_listings" %></br><p/>
 
-
+</fieldset>
 
 
 
