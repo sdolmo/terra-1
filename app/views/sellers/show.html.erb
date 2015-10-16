@@ -1,14 +1,14 @@
-<h2>These are all your listings</h2>
-<%= @seller.name %>
+<h2 class="col-lg-10">These are all your listings</h2>
+<div class="col-lg-10"> <%= @seller.name %> </div>
 <% @seller_listings.each do |listing|%>
-	<p> Title: <%= listing.title %></br></p>
-	<p> Description: <%= listing.description %></br></p>
-	<p> Acres: <%= listing.acres %></br></p>
-	<p> Price: <%= listing.price %></br></p>
-  <%= image_tag listing.image.url(:thumb) %>
-  <!-- add a link to be able to edit each listing -->
-<p><%= link_to "Edit this listing", edit_listing_path(listing, :seller_id => @seller.id)%></br></p>
+    <p class="col-lg-10"> Title: <%= listing.title %></br></p>
+    <p class="col-lg-10"> Description: <%= listing.description %></br></p>
+    <p class="col-lg-10"> Acres: <%= listing.acres %></br></p>
+    <p class="col-lg-10"> Price: <%= listing.price %></br></p>
+ <div class="col-lg-10"> <%= image_tag listing.image.url(:thumb) %> </div>
+ <!-- add a link to be able to edit each listing -->
+<p class="col-lg-10"><%= link_to "Edit this listing", edit_listing_path(listing, :seller_id => @seller.id)%></br></p>
 <% end %>
 
-<p><%= link_to "Create another listing", new_seller_path, class: "new_seller"%></br></p>
-<p><%= link_to "Send me back to the home page", root_path%></br><p/>
+<p class="col-lg-10"><%= link_to "Create another listing", new_seller_path, class: "new_seller"%></br></p>
+<p class="col-lg-10"><%= link_to "Send me back to the home page", root_path%></br><p/>
