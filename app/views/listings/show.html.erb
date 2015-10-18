@@ -1,7 +1,43 @@
+<head>
+
+   
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script> 
+
+    function initialize() {
+      var myLatlng = new google.maps.LatLng(<%= @listing.latitude %>, <%= @listing.longitude %>); 
+      var myOptions = {
+        zoom: 8,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    }
+
+    function loadScript() {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "http://maps.google.com/maps/api/js?sensor=false&callback=initialize";
+      document.body.appendChild(script);
+    }
+
+    window.onload = loadScript;
+    
+
+
+  </script>
+
+</head>
+
+<body>
+
 <h1 class="col-lg-10">Listing Details:</h1>
 <p class="col-lg-10">Listing by <%=@seller.name%></p>
 <h3 class="col-lg-10">Title: <%= @listing.title %></h3>
 <div class="col-lg-10"> <%= image_tag @listing.image.url(:medium) %> </div>
+</br>
+</br>
 <p class="col-lg-10">Price: <%= @listing.price %></p>
 <p class="col-lg-10">Acres: <%= @listing.acres %></p>
 <p class="col-lg-10">Description: <%= @listing.description %></p>
@@ -14,11 +50,24 @@
 </br>
 
 <a class="col-lg-10", href="mailto:<%=@seller.email%>?subject=Terra%3AListing <%= @listing.title %>&amp;body=I%20would%20like%20more%20information%20about%20this%20listing%0Ahttp://localhost:3000/listings/<%=@listing.id%>">Email this seller </a>
+<br>
+<br>
+</br>
 </br>
 
+<div id="map_canvas"></div>
 </br>
 </br>
 
 <p class="col-lg-10"> <%= link_to "Back to all listings", listings_path %> </p>
 <p class="col-lg-10"><%= link_to "Send me back to the home page", root_path%></br><p/>
 
+
+</br>
+</br>
+
+
+
+
+
+</body>
