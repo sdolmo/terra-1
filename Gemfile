@@ -24,8 +24,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # form image hosting purposes
 gem "paperclip", "~> 4.3"
-gem 'bootstrap-sass'       
+gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
