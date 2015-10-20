@@ -5,7 +5,7 @@ class CreateListings < ActiveRecord::Migration
       t.float :acres
       t.float :price
       t.text :description
-      t.integer :seller_id
+      t.integer :user_id
 
       t.timestamps null: false
     end
