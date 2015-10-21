@@ -26,6 +26,28 @@ height: auto !important;
 height: 100%;
 margin: 0 auto -4em;
 }
+
+h1, h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+h3 {
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.new_seller, .show_listings {
+  display: block;
+  text-align: center;
+}
+
+.footer > p {
+  text-align: center;
+}
+
 .footer, .push {
 height: 4em;
 }
