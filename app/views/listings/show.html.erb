@@ -27,7 +27,6 @@
 
 </head>
 
-
 <h1 class="col-lg-10">Listing Details:</h1>
 <h3 class="col-lg-10">Title: <%= @listing.title %></h3>
 <div class="col-lg-10"> <%= image_tag @listing.image.url(:medium) %> </div>
@@ -37,16 +36,16 @@
 <h3 class="col-lg-10">Land Coordinates:</h3>
 <p class="col-lg-10">Latitude: <%= @listing.latitude %></p>
 <p class="col-lg-10">Longitude: <%= @listing.longitude %></p>
-
+<div id="map_canvas"></div>
 
 <h3 class="col-lg-10">Seller's Contact info:</h3>
+
+<p class="col-lg-10">Name: <%= current_user.name %></p></br>
+<p class="col-lg-10">Email: <%= current_user.email %></p>
+
 </br>
 
 
-</br>
-</br>
-
-<div id="map_canvas"></div>
 
 <p class="col-lg-10"> <%= link_to "Back to all listings", listings_path %> </p>
 <p class="col-lg-10"><%= link_to "Send me back to the home page", root_path%></br><p/>

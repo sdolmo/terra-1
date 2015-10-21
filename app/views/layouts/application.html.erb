@@ -7,19 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-      <%= link_to "Sign In", new_user_session_path %>
-
-      <%= link_to "Sign Up", new_user_registration_path %>
-
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete%>
-  
+  <head>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="sign">
+      <div class="btn btn-default"><%= link_to "Sign In", new_user_session_path %></div>
+      <div class="btn btn-default"><%= link_to "Sign Up", new_user_registration_path %></div>
+      <div class="btn btn-default"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div>
     <% if user_signed_in? %>
-      <%= link_to "View my listings", users_path %>
+      <%= link_to "Account", edit_user_registration_path %>
+      <td><%= current_user.username %></td>
     <% end %>
+    </div>
+  </head>
 
+    <header class="navbar  navbar-default">
+        <div class="navbar-class">
+          <div class="container-fluid">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav">
+              <li class="active"><%= link_to "HOME", root_path %></li>
+              <li><%= link_to "All Listings", listings_path %></li>
+              <li><%= link_to "Create Listing", new_listing_path %></li>
+              <% if user_signed_in? %>
+              <li><%= link_to "View My Listings", users_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </header>
 <%= yield %>
+
 
 </body>
 </html>
