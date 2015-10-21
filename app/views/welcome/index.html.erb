@@ -1,33 +1,17 @@
-<html>
-   <head>
-       <link rel="stylesheet" href="layout.css" ... />
+<div class="wrapper">
+  <h1>Welcome to Terra</h1>
+  <h3>A platform that brings international sellers of undeveloped lands, with buyers from all around the world.</h3>
 
-   <body>
-       <div class="wrapper">
-           <p><center><h1><b>Welcome to Terra</b></h1></center>.</p>
-            <p><center><h3><b><i>A platform that brings international sellers of undeveloped lands, with buyers from all around the world.</i></b></h3></center>.</p>
+  <%= image_tag('bg.jpg', class: "background_photo",size: "1500x400" ) %>
+  <h2>Looking to list your land for sale ?</h2>
+  <%= link_to "Create listing",  new_listing_path, class: "new_seller" %>
 
-           <%= image_tag('bg.jpg', class: "background_photo",size: "1500x400" ) %>
+  <section>
+    <h2>or</h2>
+  </section>
 
+  <h2>Looking to purchase land?</h2>
+  <%= link_to "View Listings", listings_path, class: "show_listings" %>
 
-   </head>
-
-           <center><b><p><h2>Looking to list your land for sale ?</h2></p></b></center>
-<center><%= link_to "Create listing",  new_listing_path, class: "new_seller" %></center>
-
-</section>
-
-<center><h2>or</h2></center>
-
-<section>
-
- <center><b><p><h2>Looking to purchase land?</h2></p></b></center>
- <center><%= link_to "View Listings", listings_path, class: "show_listings" %></center>
-
-           <div class="push"></div>
-       </div>
-       <div class="footer">
-           <p><center>&copy; Made with ♥ by Sylvia Dolmo, Bruna Netto, & Esther Mohadeb</center></p>
-       </div>
-   </body>
-</html>
+  <div class="push"></div>
+</div>

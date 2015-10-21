@@ -11,12 +11,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div class="sign">
-      <div class="btn btn-default"><%= link_to "Sign In", new_user_session_path %></div>
-      <div class="btn btn-default"><%= link_to "Sign Up", new_user_registration_path %></div>
-      <div class="btn btn-default"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div>
     <% if user_signed_in? %>
+      <div class="btn btn-default"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></div>
       <%= link_to "Account", edit_user_registration_path %>
       <td><%= current_user.username %></td>
+      <% else %>
+      <div class="btn btn-default"><%= link_to "Sign In", new_user_session_path %></div>
+      <div class="btn btn-default"><%= link_to "Sign Up", new_user_registration_path %></div>
     <% end %>
     </div>
   </head>
@@ -36,8 +37,9 @@
           </div>
         </div>
       </header>
-<%= yield %>
-
-
+      <%= yield %>
+      <div class="footer">
+           <p>&copy; Made with ♥ by Sylvia Dolmo, Bruna Netto, & Esther Mohadeb</p>
+      </div>
 </body>
 </html>
