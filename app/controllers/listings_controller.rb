@@ -10,7 +10,6 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @user = User.find_by(:id)
   end
 
   def new
