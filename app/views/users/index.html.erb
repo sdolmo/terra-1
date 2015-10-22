@@ -1,13 +1,15 @@
-<h2 class="col-lg-10">These are all your listings</h2>
-<div class="col-lg-10"> <%= @user.name %> </div>
+<h2>These are all your listings</h2>
+<div> <%= @user.name %> </div>
 <% @user_listings.each do |listing|%>
-	<ul class="col-lg-10">
-	    <li><%= link_to listing.title,listing_path(listing) %> </li>
-	    		<%= image_tag listing.image.url(:thumb) %>
-			<p><%= link_to "Edit this listing", edit_listing_path(listing) %></br></p>
+	<ul>
+	    <li style="list-style-type: none;"><%= link_to listing.title,listing_path(listing) %>
+	    	<%= image_tag listing.image.url(:thumb) %>
+			<%= link_to "Edit this listing", edit_listing_path(listing) %></li>
 	</ul>
   <!-- add a link to be able to edit each listing -->
 <% end %>
 
-<p class="col-lg-10", "btn btn-primary"><%= link_to "Create Listing", new_listing_path, class: "new_seller"%></br></p>
-<p class="col-lg-10"><%= link_to "Send me back to the home page", root_path%></br><p/>
+<div style="width: 4; float: left;">
+  <p><%= link_to "Create Listing", new_listing_path, class: "new_seller"%></p><br>
+  <p><%= link_to "Send me back to the home page", root_path%></p><br>
+</div>
