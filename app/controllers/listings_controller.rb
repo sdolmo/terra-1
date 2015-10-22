@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @user = User.find_by(:id => @listing.user_id)
   end
 
   def new
@@ -38,9 +39,10 @@ class ListingsController < ApplicationController
 
   def update
     @listing = Listing.find(params[:id])
-    @seller = Seller.find_by(:id => @listing.seller_id)
+    #@seller = Seller.find_by(:id => @listing.seller_id)
+    @user = User.find_by(:id => @listing.user_id)
     @listing.update(listing_params)
-    redirect_to @seller
+    redirect_to action: "index"
   end
 
   private
